@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="./host-bridge.js" data-module="deckcraft" data-version="0.8.0"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>DeckCraft</title>
+  
+<script type="module" src="./boot.js"></script>
+  <link rel="icon" href="./ai.storyteller.deckcraft-74e97653dd8dd002.png" integrity="sha384-THDce39ERZRgdnEtM/35FnmU4IExPfz9k2XrApCGWP0NUMC98NUWG1VYUMNXNCiD"/>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #262626; }
+    #deckcraft_canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    #deckcraft_loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #b8b8b8; font: 14px system-ui, sans-serif; pointer-events: none; }
+  </style>
+<link rel="modulepreload" href="./deckcraft-web-c22a3bfc8b8eeaf6.js" crossorigin="anonymous" integrity="sha384-as4rBrliLo1MSceer0Jt4KJo9Qio4S/anVDFtyw0+XH5lFoalrj8l/GwLrHjx4O3"><link rel="preload" href="./deckcraft-web-c22a3bfc8b8eeaf6_bg.wasm?v=patched1" crossorigin="anonymous" integrity="sha384-1bSXfjtr2LZGW8uax2eNVItz5Oi9EufSoKjUdMHBa6RbIha/qaN8QN/riNu5u7Pf" as="fetch" type="application/wasm"></head>
+<body>
+  <canvas id="deckcraft_canvas"></canvas>
+  <div id="deckcraft_loading">Loading DeckCraft&hellip;</div>
+</body>
+</html>

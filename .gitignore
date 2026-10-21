@@ -1,0 +1,10 @@
+# Ignorar dados temporários e artefatos de build/chaves
+*.log
+.DS_Store
+node_modules/
+vendor/
+dist/
+.env
+*.key
+*.csr
+*.crt

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>artcraft</id>
+    <name>ArtCraft Office</name>
+    <summary>Suíte Office WebAssembly rápida e moderna (WordCraft, GridCraft e DeckCraft) para o Nextcloud</summary>
+    <description><![CDATA[
+Integração nativa da suíte ArtCraft Office para o Nextcloud, rodando 100% no navegador via WebAssembly (WebGPU / WebGL2) sem necessidade de servidores externos pesados:
+
+- **WordCraft**: Processador de textos compatível com Microsoft Word (.docx, .doc, .odt, .rtf).
+- **GridCraft**: Planilha eletrônica compatível com Microsoft Excel (.xlsx, .xls, .ods, .csv, .tsv).
+- **DeckCraft**: Apresentações de slides compatíveis com Microsoft PowerPoint (.pptx, .ppsx, .potx, .deckcraft).
+
+Inclui abertura direta no Nextcloud Files, criação pelo menu "+ Novo", abertura direta de anexos (Nextcloud Mail / Talk) e listagem dedicada de arquivos por módulo.
+    ]]></description>
+    <version>0.1.0</version>
+    <licence>mit</licence>
+    <author>ArtCraft Integration</author>
+    <namespace>Artcraft</namespace>
+    <types>
+        <filesystem/>
+    </types>
+    <category>office</category>
+    <category>files</category>
+    <dependencies>
+        <nextcloud min-version="28" max-version="32"/>
+    </dependencies>
+</info>

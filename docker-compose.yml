@@ -1,0 +1,23 @@
+services:
+  nextcloud:
+    image: nextcloud:30-apache
+    container_name: artcraft-nextcloud
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      - SQLITE_DATABASE=nextcloud
+      - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER:-admin}
+      - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD:-adminpassword}
+      - NEXTCLOUD_TRUSTED_DOMAINS=localhost 127.0.0.1 localhost:8080 127.0.0.1:8080
+    volumes:
+      - nextcloud_data:/var/www/html
+      - ./:/var/www/html/custom_apps/artcraft
+    entrypoint: >
+      /bin/sh -c "mkdir -p /var/www/html/custom_apps &&
+      chown www-data:www-data /var/www/html/custom_apps &&
+      chmod 775 /var/www/html/custom_apps &&
+      exec /entrypoint.sh apache2-foreground"
+
+volumes:
+  nextcloud_data:
