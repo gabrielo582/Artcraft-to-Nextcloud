@@ -58,3 +58,12 @@ docker compose exec -u www-data nextcloud php occ app:enable artcraft
 ```
 
 Acesse `http://localhost:8080` (usuário `admin` / senha `adminpassword`).
+
+---
+
+## Contribuição e Política de IA
+
+Contribuições são bem-vindas!
+- Consulte as diretrizes em [CONTRIBUTING.md](CONTRIBUTING.md).
+- Contribuições auxiliadas por IA devem obrigatoriamente seguir a [Nextcloud AI Contribution Policy](AI-POLICY.md), incluindo o trailer `Assisted-by:` nos commits aplicáveis e declaração no PR.
+
