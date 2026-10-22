@@ -35,6 +35,9 @@ cp -r \
     "${ROOT_DIR}/templates" \
     "${ROOT_DIR}/wasm" \
     "${ROOT_DIR}/README.md" \
+    "${ROOT_DIR}/CHANGELOG.md" \
+    "${ROOT_DIR}/AI-POLICY.md" \
+    "${ROOT_DIR}/CONTRIBUTING.md" \
     "${APP_STAGE}/"
 
 ARCHIVE_PATH="${DIST_DIR}/artcraft.tar.gz"
