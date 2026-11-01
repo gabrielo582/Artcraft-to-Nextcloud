@@ -54,8 +54,6 @@ class Application extends App implements IBootstrap {
                     $csp->allowEvalWasm(true);
                     $csp->addAllowedFrameDomain('\'self\'');
                     $csp->addAllowedFrameDomain('blob:');
-                    $csp->addAllowedChildSrcDomain('\'self\'');
-                    $csp->addAllowedChildSrcDomain('blob:');
                     $csp->addAllowedWorkerSrcDomain('\'self\'');
                     $csp->addAllowedWorkerSrcDomain('blob:');
                     $csp->addAllowedConnectDomain('\'self\'');

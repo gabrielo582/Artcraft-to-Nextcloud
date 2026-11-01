@@ -58,6 +58,20 @@ class ArtcraftNextcloudIntegrationTests(unittest.TestCase):
                 f"Método {method_name} não encontrado em {ctrl_file}",
             )
 
+    def test_csp_does_not_use_removed_child_src_methods(self):
+        lib_dir = os.path.join(ROOT_DIR, "lib")
+        for root_path, _, files in os.walk(lib_dir):
+            for file in files:
+                if file.endswith(".php"):
+                    php_file = os.path.join(root_path, file)
+                    with open(php_file, "r", encoding="utf-8") as pf:
+                        content = pf.read()
+                    self.assertNotIn(
+                        "addAllowedChildSrcDomain",
+                        content,
+                        f"Método removido no Nextcloud 34+ (addAllowedChildSrcDomain) encontrado em {php_file}",
+                    )
+
     def test_wasm_bundles_and_csp_safe_boot(self):
         for module in ("wordcraft", "gridcraft", "deckcraft"):
             mod_dir = os.path.join(ROOT_DIR, "wasm", module)

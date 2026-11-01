@@ -115,8 +115,6 @@ class WasmController extends Controller {
         $csp->addAllowedImageDomain('blob:');
         $csp->addAllowedFrameDomain('\'self\'');
         $csp->addAllowedFrameDomain('blob:');
-        $csp->addAllowedChildSrcDomain('\'self\'');
-        $csp->addAllowedChildSrcDomain('blob:');
         $csp->addAllowedWorkerSrcDomain('\'self\'');
         $csp->addAllowedWorkerSrcDomain('blob:');
         $csp->addAllowedFormActionDomain('\'self\'');
