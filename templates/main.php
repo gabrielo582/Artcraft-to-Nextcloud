@@ -1,6 +1,8 @@
 <?php
 /** @var array $_ */
 /** @var \OCP\IL10N $l */
+/** @var \OCP\IURLGenerator $urlGenerator */
+$urlGenerator = $_['urlGenerator'] ?? \OCP\Server::get(\OCP\IURLGenerator::class);
 $module = isset($_['module']) ? (string)$_['module'] : 'wordcraft';
 $displayName = isset($_['displayName']) ? (string)$_['displayName'] : '';
 $initialFileId = isset($_['initialFileId']) && $_['initialFileId'] !== null ? (int)$_['initialFileId'] : '';
@@ -14,7 +16,7 @@ $initialFileId = isset($_['initialFileId']) && $_['initialFileId'] !== null ? (i
     <!-- Barra lateral de navegação entre os módulos ArtCraft -->
     <aside class="artcraft-sidebar">
         <div class="artcraft-sidebar-header">
-            <img src="<?php p(\OC::$server->getURLGenerator()->imagePath('artcraft', 'app.svg')); ?>" alt="ArtCraft" class="artcraft-brand-logo" />
+            <img src="<?php p($urlGenerator->imagePath('artcraft', 'app.svg')); ?>" alt="ArtCraft" class="artcraft-brand-logo" />
             <div>
                 <h1 class="artcraft-brand-title">ArtCraft Office</h1>
                 <p class="artcraft-brand-subtitle">WebAssembly Suite</p>
@@ -22,30 +24,30 @@ $initialFileId = isset($_['initialFileId']) && $_['initialFileId'] !== null ? (i
         </div>
 
         <nav class="artcraft-module-nav" aria-label="Módulos ArtCraft">
-            <a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('artcraft.page.wordcraft')); ?>"
+            <a href="<?php p($urlGenerator->linkToRoute('artcraft.page.wordcraft')); ?>"
                class="artcraft-nav-item <?php p($module === 'wordcraft' ? 'is-active' : ''); ?>"
                data-module-switch="wordcraft">
-                <img src="<?php p(\OC::$server->getURLGenerator()->imagePath('artcraft', 'wordcraft.svg')); ?>" alt="" />
+                <img src="<?php p($urlGenerator->imagePath('artcraft', 'wordcraft.svg')); ?>" alt="" />
                 <div class="artcraft-nav-text">
                     <span class="artcraft-nav-title">WordCraft</span>
                     <span class="artcraft-nav-desc">Documentos (.docx, .odt, .rtf)</span>
                 </div>
             </a>
 
-            <a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('artcraft.page.gridcraft')); ?>"
+            <a href="<?php p($urlGenerator->linkToRoute('artcraft.page.gridcraft')); ?>"
                class="artcraft-nav-item <?php p($module === 'gridcraft' ? 'is-active' : ''); ?>"
                data-module-switch="gridcraft">
-                <img src="<?php p(\OC::$server->getURLGenerator()->imagePath('artcraft', 'gridcraft.svg')); ?>" alt="" />
+                <img src="<?php p($urlGenerator->imagePath('artcraft', 'gridcraft.svg')); ?>" alt="" />
                 <div class="artcraft-nav-text">
                     <span class="artcraft-nav-title">GridCraft</span>
                     <span class="artcraft-nav-desc">Planilhas (.xlsx, .ods, .csv)</span>
                 </div>
             </a>
 
-            <a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('artcraft.page.deckcraft')); ?>"
+            <a href="<?php p($urlGenerator->linkToRoute('artcraft.page.deckcraft')); ?>"
                class="artcraft-nav-item <?php p($module === 'deckcraft' ? 'is-active' : ''); ?>"
                data-module-switch="deckcraft">
-                <img src="<?php p(\OC::$server->getURLGenerator()->imagePath('artcraft', 'deckcraft.svg')); ?>" alt="" />
+                <img src="<?php p($urlGenerator->imagePath('artcraft', 'deckcraft.svg')); ?>" alt="" />
                 <div class="artcraft-nav-text">
                     <span class="artcraft-nav-title">DeckCraft</span>
                     <span class="artcraft-nav-desc">Apresentações (.pptx, .deckcraft)</span>
@@ -65,7 +67,7 @@ $initialFileId = isset($_['initialFileId']) && $_['initialFileId'] !== null ? (i
         <header class="artcraft-hero" id="artcraft-hero">
             <div class="artcraft-hero-info">
                 <img id="artcraft-hero-icon"
-                     src="<?php p(\OC::$server->getURLGenerator()->imagePath('artcraft', $module . '.svg')); ?>"
+                     src="<?php p($urlGenerator->imagePath('artcraft', $module . '.svg')); ?>"
                      alt=""
                      class="artcraft-hero-logo" />
                 <div>

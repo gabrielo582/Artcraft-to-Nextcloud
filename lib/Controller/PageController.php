@@ -10,6 +10,7 @@ use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
+use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\Util;
 
@@ -17,6 +18,7 @@ class PageController extends Controller {
     public function __construct(
         IRequest $request,
         private IUserSession $userSession,
+        private IURLGenerator $urlGenerator,
     ) {
         parent::__construct(Application::APP_ID, $request);
     }
@@ -72,6 +74,7 @@ class PageController extends Controller {
             'module' => $module,
             'displayName' => $displayName,
             'initialFileId' => $fileId > 0 ? $fileId : null,
+            'urlGenerator' => $this->urlGenerator,
         ]);
     }
 }

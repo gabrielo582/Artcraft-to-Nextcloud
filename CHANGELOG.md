@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.3] - 2026-11-01
+
+### Fixed
+- Correção de erro fatal ao obter URL Generator (`Call to undefined method OC\Server::getURLGenerator()`) em `templates/main.php` no Nextcloud 35.
+- Injeção e passagem de `OCP\IURLGenerator` a partir de `PageController` para o template principal com fallback seguro para `\OCP\Server::get(\OCP\IURLGenerator::class)`.
+- Atualização do ambiente de teste com `docker-compose.yml` utilizando a imagem `lscr.io/linuxserver/nextcloud:latest` (Nextcloud 35).
+- Adição de teste automatizado para garantir que nenhum template utilize `\OC::$server` ou o método removido `getURLGenerator()`.
+
 ## [0.0.2] - 2026-11-01
 
 ### Fixed

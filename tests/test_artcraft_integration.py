@@ -72,6 +72,25 @@ class ArtcraftNextcloudIntegrationTests(unittest.TestCase):
                         f"Método removido no Nextcloud 34+ (addAllowedChildSrcDomain) encontrado em {php_file}",
                     )
 
+    def test_templates_do_not_use_deprecated_oc_server(self):
+        templates_dir = os.path.join(ROOT_DIR, "templates")
+        for root_path, _, files in os.walk(templates_dir):
+            for file in files:
+                if file.endswith(".php"):
+                    tmpl_file = os.path.join(root_path, file)
+                    with open(tmpl_file, "r", encoding="utf-8") as tf:
+                        content = tf.read()
+                    self.assertNotIn(
+                        "\\OC::$server",
+                        content,
+                        f"Uso de \\OC::$server depreciado/removido encontrado em {tmpl_file}",
+                    )
+                    self.assertNotIn(
+                        "getURLGenerator",
+                        content,
+                        f"Método removido no Nextcloud 35+ (getURLGenerator) encontrado em {tmpl_file}",
+                    )
+
     def test_wasm_bundles_and_csp_safe_boot(self):
         for module in ("wordcraft", "gridcraft", "deckcraft"):
             mod_dir = os.path.join(ROOT_DIR, "wasm", module)

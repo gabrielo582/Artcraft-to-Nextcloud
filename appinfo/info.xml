@@ -11,7 +11,7 @@
 - **DeckCraft**: Apresentações de slides compatíveis com Microsoft PowerPoint (.pptx, .ppsx, .potx, .deckcraft).
 
 Inclui abertura direta no Nextcloud Files, criação pelo menu "+ Novo", abertura direta de anexos (Nextcloud Mail / Talk) e listagem dedicada de arquivos por módulo.]]></description>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <licence>mit</licence>
     <author mail="gabriel.oliver582@gmail.com">Gabriel Sousa</author>
     <namespace>Artcraft</namespace>

@@ -1,23 +1,22 @@
 services:
   nextcloud:
-    image: nextcloud:30-apache
-    container_name: artcraft-nextcloud
-    restart: unless-stopped
-    ports:
-      - "127.0.0.1:8080:80"
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
     environment:
-      - SQLITE_DATABASE=nextcloud
-      - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER:-admin}
-      - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD:-adminpassword}
-      - NEXTCLOUD_TRUSTED_DOMAINS=localhost 127.0.0.1 localhost:8080 127.0.0.1:8080
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
     volumes:
-      - nextcloud_data:/var/www/html
-      - ./:/var/www/html/custom_apps/artcraft
-    entrypoint: >
-      /bin/sh -c "mkdir -p /var/www/html/custom_apps &&
-      chown www-data:www-data /var/www/html/custom_apps &&
-      chmod 775 /var/www/html/custom_apps &&
-      exec /entrypoint.sh apache2-foreground"
+      - /home/servicos/docker-file/nextcloud/config:/config
+      - /home/servicos/docker-file/nextcloud/data:/data
+      - ./:/config/www/nextcloud/apps/artcraft
+    ports:
+      - 1443:443
+      - 1088:80
+    restart: unless-stopped
+    networks:
+      - net_nextcloud
 
-volumes:
-  nextcloud_data:
+networks:
+  net_nextcloud:
+    driver: bridge
